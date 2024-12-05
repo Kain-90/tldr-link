@@ -1,13 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@extension/ui';
-import { useStorage } from '@extension/shared';
+import { LinkSummaryResponse, useStorage, MessageType } from '@extension/shared';
 import { exampleThemeStorage } from '@extension/storage';
+import { SummaryPopup } from '@src/components/SummaryPopup';
 
 export default function App() {
   const theme = useStorage(exampleThemeStorage);
+  const [showSummaryPopup, setShowSummaryPopup] = useState(false);
+  const [summaryPopupData, setSummaryPopupData] = useState<LinkSummaryResponse | null>(null);
 
   useEffect(() => {
-    console.log('content ui loaded');
+    chrome.runtime.onMessage.addListener((message: LinkSummaryResponse) => {
+      if (message.type === MessageType.LINK_SUMMARY) {
+        setShowSummaryPopup(true);
+        setSummaryPopupData(message);
+      }
+    });
   }, []);
 
   return (
@@ -18,6 +26,13 @@ export default function App() {
       <Button theme={theme} onClick={exampleThemeStorage.toggle}>
         Toggle Theme
       </Button>
+      {showSummaryPopup && summaryPopupData?.payload && (
+        <SummaryPopup
+          position={summaryPopupData.payload.position}
+          summary={summaryPopupData.payload.summary}
+          status={summaryPopupData.payload.status}
+        />
+      )}
     </div>
   );
 }

@@ -1,11 +1,11 @@
 {
   "extensionDescription": {
     "description": "Extension description",
-    "message": "Chrome extension boilerplate developed with Vite, React and Typescript"
+    "message": "TLDR Link - One Click Summary Link"
   },
   "extensionName": {
     "description": "Extension name",
-    "message": "Chrome extension boilerplate"
+    "message": "TLDR Link - One Click Summary Link"
   },
   "toggleTheme": {
     "message": "Toggle theme"
