@@ -1,4 +1,4 @@
-import { LinkSummaryRequest } from '@extension/shared/lib/utils';
+import type { LinkSummaryRequest } from '@extension/shared/lib/utils';
 
 export function initLinkDragHandler() {
   document.addEventListener('dragstart', e => {

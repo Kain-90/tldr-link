@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { LinkSummaryResponse } from '@extension/shared/lib/utils';
+import React from 'react';
 
 interface Props {
   position: {
@@ -13,7 +12,7 @@ interface Props {
 export const SummaryPopup: React.FC<Props> = ({ position, summary, status }) => {
   return (
     <div 
-      className="fixed z-50 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 max-w-md"
+      className="fixed z-50 max-w-md rounded-lg bg-white p-4 shadow-lg dark:bg-gray-800"
       style={{
         left: position.x,
         top: position.y,

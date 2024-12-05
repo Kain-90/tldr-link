@@ -8,7 +8,7 @@ export enum MessageType {
 
 export interface BaseResponse {
   type: MessageType;
-  payload: Record<string, any>;
+  payload: Record<string, unknown>;
 }
 
 export interface LinkSummaryResponse extends BaseResponse {

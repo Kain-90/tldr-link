@@ -1,6 +1,7 @@
 import 'webextension-polyfill';
 import { exampleThemeStorage } from '@extension/storage';
-import { LinkSummaryResponse, LinkSummaryRequest, MessageType } from '@extension/shared/lib/utils';
+import type { LinkSummaryResponse, LinkSummaryRequest} from '@extension/shared/lib/utils';
+import { MessageType } from '@extension/shared/lib/utils';
 
 exampleThemeStorage.get().then(theme => {
   console.log('theme', theme);
@@ -15,7 +16,7 @@ const mockSummaryAPI = async (url: string): Promise<string> => {
   return `This is a mock summary for ${url}. In production, this would be replaced with actual AI-generated content from your backend service.`;
 };
 
-chrome.runtime.onMessage.addListener((request: LinkSummaryRequest, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request: LinkSummaryRequest, sender) => {
   const tabId = sender.tab?.id;
   if (!tabId) {
     return;
@@ -47,6 +48,7 @@ chrome.runtime.onMessage.addListener((request: LinkSummaryRequest, sender, sendR
       });
     })
     .catch(error => {
+      console.error('Error fetching summary', error);
       // send error status
       chrome.tabs.sendMessage<LinkSummaryResponse>(tabId, {
         type: MessageType.LINK_SUMMARY,

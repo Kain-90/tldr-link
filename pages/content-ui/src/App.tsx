@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@extension/ui';
-import { LinkSummaryResponse, useStorage, MessageType } from '@extension/shared';
+import type { LinkSummaryResponse} from '@extension/shared';
+import { useStorage, MessageType } from '@extension/shared';
 import { exampleThemeStorage } from '@extension/storage';
 import { SummaryPopup } from '@src/components/SummaryPopup';
 
