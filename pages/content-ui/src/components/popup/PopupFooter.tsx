@@ -8,9 +8,9 @@ export const PopupFooter = () => (
       <button className="hover:text-gray-700 dark:hover:text-gray-300">Feedback</button>
     </div>
     <button
-      className="flex items-center gap-1 rounded-lg p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-300"
+      className="flex items-center gap-1 rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-500 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300"
       title="Settings">
-      <Settings className="h-4 w-4" />
+      <Settings className="size-4" />
     </button>
   </div>
 );

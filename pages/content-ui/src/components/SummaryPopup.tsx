@@ -87,7 +87,7 @@ export const SummaryPopup = ({ position, summary, status, onClose, usageCount = 
   return (
     <div
       ref={popupRef}
-      className={`fixed z-[9999] max-w-md rounded-lg bg-white dark:bg-gray-800 w-[400px] ${
+      className={`fixed z-[9999] w-[400px] max-w-md rounded-lg bg-white dark:bg-gray-800 ${
         isHovered ? 'shadow-2xl shadow-indigo-300' : 'shadow-lg'
       }`}
       style={{
