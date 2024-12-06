@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@extension/ui';
-import type { LinkSummaryResponse} from '@extension/shared';
+import type { LinkSummaryResponse } from '@extension/shared';
 import { useStorage, MessageType } from '@extension/shared';
 import { exampleThemeStorage } from '@extension/storage';
 import { SummaryPopup } from '@src/components/SummaryPopup';
@@ -19,6 +19,11 @@ export default function App() {
     });
   }, []);
 
+  const handleCloseSummary = () => {
+    setShowSummaryPopup(false);
+    setSummaryPopupData(null);
+  };
+
   return (
     <div className="flex items-center justify-between gap-2 rounded bg-blue-100 px-2 py-1">
       <div className="flex gap-1 text-blue-500">
@@ -32,6 +37,7 @@ export default function App() {
           position={summaryPopupData.payload.position}
           summary={summaryPopupData.payload.summary}
           status={summaryPopupData.payload.status}
+          onClose={handleCloseSummary}
         />
       )}
     </div>
