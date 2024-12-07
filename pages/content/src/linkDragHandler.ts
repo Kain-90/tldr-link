@@ -1,4 +1,5 @@
 import type { LinkSummaryRequest } from '@extension/shared/lib/utils';
+import { MessageType } from '@extension/shared/lib/utils';
 
 export function initLinkDragHandler() {
   document.addEventListener('dragstart', e => {
@@ -11,8 +12,11 @@ export function initLinkDragHandler() {
       };
 
       chrome.runtime.sendMessage<LinkSummaryRequest>({
-        url,
-        position,
+        kind: MessageType.LINK_SUMMARY,
+        payload: {
+          url,
+          position,
+        },
       });
     }
   });

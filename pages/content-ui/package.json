@@ -26,13 +26,15 @@
     "@extension/shared": "workspace:*",
     "@extension/storage": "workspace:*",
     "@extension/ui": "workspace:*",
-    "lucide-react": "^0.468.0"
+    "lucide-react": "^0.468.0",
+    "react-markdown": "^9.0.1"
   },
   "devDependencies": {
     "@extension/hmr": "workspace:*",
     "@extension/tailwindcss-config": "workspace:*",
     "@extension/tsconfig": "workspace:*",
     "@extension/vite-config": "workspace:*",
+    "@tailwindcss/typography": "^0.5.15",
     "concurrently": "^9.0.1",
     "cross-env": "^7.0.3"
   }

@@ -9,7 +9,7 @@ interface Props {
     y: number;
   };
   summary: string;
-  status: 'loading' | 'success' | 'error';
+  status: 'loading' | 'streaming' | 'success' | 'error';
   onClose: () => void;
   usageCount?: number;
 }
